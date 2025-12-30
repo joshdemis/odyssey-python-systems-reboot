@@ -1,0 +1,20 @@
+{
+    "users": {
+      "josh": {
+        "role": "admin",
+        "active": true,
+        "email": "josh@example.com"
+      },
+      "dan": {
+        "role": "user",
+        "active": false,
+        "email": "dan@example.com"
+      },
+      "ment": {
+        "role": "user",
+        "active": true,
+        "email": "ment@example.com"
+      }
+    }
+  }
+  
