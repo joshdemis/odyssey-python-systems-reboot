@@ -365,11 +365,168 @@ If the code needs comments to explain what it does, the code is bad.
 #     return (1 if data[0]==target else 0) + count_occurences(data[1:], target)
 
 # print(count_occurences(l2,1))
-def fib(n):
-    if n<=1:
-        return n
-    return fib(n-1) + fib(n-2)
 
-l1= list(range(1,8))
-for i in l1:
-    print(fib(i))
+
+# def fib(n):
+#     if n<=1:
+#         return n
+#     return fib(n-1) + fib(n-2)
+
+# l1= list(range(1,8))
+# for i in l1:
+#     print(fib(i))
+
+##Find the maximum value in a list:
+
+# def find_max(numbers):
+#     if len(numbers)==1:
+#         return numbers[0]
+#     else:
+#         max_of_rest =find_max(numbers[1:])
+#         return numbers[0] if numbers[0] > max_of_rest else max_of_rest
+
+# my_list = [3, 7, 2, 9, 1]
+# print(find_max(my_list))
+
+# def find_max(numbers):
+#     current_max = numbers[0]
+#     for n in numbers[1:]:
+#         if n > current_max:
+#             current_max = n
+#     return current_max
+
+
+# def find_max(numbers, index=0):
+#     if index == len(numbers) - 1:
+#         return numbers[index]
+
+#     max_of_rest = find_max(numbers, index + 1)
+#     return numbers[index] if numbers[index] > max_of_rest else max_of_rest
+
+
+#===========generators===========
+
+# def count_up(n):
+#     i = 1
+#     while i < n:
+#         yield i
+#         i += 1
+
+# for item in count_up(8):
+#     print(item)
+
+
+# def read_data():
+#     for row in source:
+#         yield row
+
+# def clean_data(rows):
+#     for r in rows:
+#         yield clean(r)
+
+# def train(rows):
+#     for r in rows:
+#         model.learn(r)
+
+# squares = list((i * i for i in range(8)))
+# print(squares)
+
+# def squares(n):
+#     for i in range(n):
+#         yield i * i
+# for item in squares(8):
+#     print(item)
+
+
+# def simple_gen():
+#   yield "Emil"
+#   yield "Tobias"
+#   yield "Linus"
+
+# gen = simple_gen()
+# print(next(gen))
+# print(next(gen))
+# print(next(gen))
+
+
+
+# def large_sequence(n):
+#   for i in range(n):
+#     yield i
+
+# # This doesn't create a million numbers in memory
+# gen = large_sequence(1000000)
+# print(next(gen))
+# print(next(gen))
+# print(next(gen))
+
+
+
+# list_comp = [x * x for x in range(5)]
+# sumnum=0
+# for i in list_comp:
+#     sumnum +=i
+
+# print(sumnum)
+# print(sum(list_comp))
+
+# list_comp = (x * x for x in range(9))   #generator
+
+# print(next(list_comp))
+# print(next(list_comp))
+# print(next(list_comp))
+# list_comp.close()
+# print(next(list_comp))
+
+
+
+# def gen():
+#     try:
+#         while True:
+#             yield "running"
+#     finally:
+#         print("cleaning up")
+
+# g = gen()
+# next(g)
+# next(g)
+# g.close()
+
+
+
+#========Range==============
+##range(start, stop, step)
+
+
+# r1 = range(1,9,2)
+# for i in r1:
+#     print(i)
+# print(6 in r1)
+
+
+#===============Python Iterators==========
+# mytuple = ("apple", "banana", "cherry")
+# myit = iter(mytuple)
+
+# print(next(myit))
+# print(next(myit))
+# print(next(myit))
+
+class MyNumbers:
+  def __iter__(self):
+    self.a = 1
+    return self
+
+  def __next__(self):
+    x = self.a
+    self.a += 1
+    return x
+
+myclass = MyNumbers()
+myiter = iter(myclass)
+
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
+print(next(myiter))
