@@ -512,21 +512,165 @@ If the code needs comments to explain what it does, the code is bad.
 # print(next(myit))
 # print(next(myit))
 
-class MyNumbers:
-  def __iter__(self):
-    self.a = 1
-    return self
+# class MyNumbers:
+#   def __iter__(self):
+#     self.a = 1
+#     return self
 
-  def __next__(self):
-    x = self.a
-    self.a += 1
-    return x
+#   def __next__(self):
+#     if self.a >5:
+#         raise StopIteration
+#     x = self.a
+#     self.a += 1
+#     return x
 
-myclass = MyNumbers()
-myiter = iter(myclass)
+# myclass = MyNumbers()
+# myiter = iter(myclass)
 
-print(next(myiter))
-print(next(myiter))
-print(next(myiter))
-print(next(myiter))
-print(next(myiter))
+# print(next(myiter))
+# print(next(myiter))
+# print(next(myiter))
+# print(next(myiter))
+# print(next(myiter))
+# print(next(myiter)) #raises StopIteration
+
+##==========Modules=============
+# import mymodule
+# from mymodule import person1
+
+# mymodule.greeting('Josh')
+# user_info = person1.items()
+
+# for key,value in user_info:
+#     print(key.capitalize(), ':', value)
+
+# import platform
+
+# x = platform.system()
+# y=dir(platform)
+# print(x)
+# print(y)
+
+
+##==========math============
+
+# import math
+
+# print(math.ceil(math.sqrt(48)))
+# print(math.floor(math.pi))
+
+
+#==========JSON=========
+
+import json
+
+# # some JSON:
+# x =  '{ "name":"John", "age":30, "city":"New York"}'
+
+# # parse x:
+# y = json.loads(x)  # the result is a Python dictionary: json to python
+# z= json.dumps(y)   #back to json: json to python
+# print(type(x)) #json
+# print(type(y))  #python
+# print(type(z))  #json
+
+
+##Convert Python objects into JSON strings, and print the values:
+
+# print(json.dumps({"name": "John", "age": 30}))
+# print(json.dumps(["apple", "bananas"]))
+# print(json.dumps(("apple", "bananas")))
+# print(json.dumps("hello"))
+# print(json.dumps(42))
+# print(json.dumps(31.76))
+# print(json.dumps(True))
+# print(json.dumps(False))
+# print(json.dumps(None))
+
+# x = {
+#   "name": "John",
+#   "age": 30,
+#   "married": True,
+#   "divorced": False,
+#   "children": ("Ann","Billy"),
+#   "pets": None,
+#   "cars": [
+#     {"model": "BMW 230", "mpg": 27.5},
+#     {"model": "Ford Edge", "mpg": 24.1}
+#   ]
+# }
+
+# print(json.dumps(x, indent=3, separators=('.', ' = ')))
+
+##=============RegEx=============
+# import re
+
+# txt = "The rain in Spain"
+# x = re.search("^The.*Spain$", txt)
+
+# print(x)
+
+##=============PIP=========
+# pip3 install camelcase
+
+# from camelcase import CamelCase
+
+# print(CamelCase().hump('hello there'))
+
+##========Try Except==========
+# The try block lets you test a block of code for errors.
+# The except block lets you handle the error.
+# The else block lets you execute code when there is no error.
+# The finally block lets you execute code, regardless of the result of the try- and except blocks.
+
+
+# try:
+#   print(x)
+# except NameError:
+#   print('x is not defined')
+# except:
+#   print("An exception occurred")
+
+# try:
+#  print(y)
+# except:
+#  print('Something went wrong')
+# else:
+#  print('nothing went wrong')
+# finally:
+#  print('all done')
+
+
+# try:
+#   f = open("demofile.txt")
+#   try:
+#     f.write("Lorum Ipsum")
+#   except:
+#     print("Something went wrong when writing to the file")
+#   finally:
+#     f.close()
+# except:
+#   print("Something went wrong when opening the file")
+
+# x = -1
+
+# if x < 0:
+#   raise Exception("Sorry, no numbers below zero")
+
+
+##===========User Input=======
+
+# name = input("Enter your name: ")
+# # print(f"Hello {name.stip().capitalize()}!")
+
+
+# y = True
+# while y == True:
+#   x = input("Enter a number:")
+#   try:
+#     x = float(x);
+#     y = False
+#   except:
+#     print("Wrong input, please try again.")
+
+# print("Thank you!")
