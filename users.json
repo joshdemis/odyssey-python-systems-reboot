@@ -1,0 +1,30 @@
+{
+  "users": [
+    {
+      "name": "Josh",
+      "age": 28,
+      "skills": [
+        "python",
+        "cloud"
+      ]
+    },
+    {
+      "name": "Daniel",
+      "age": 29,
+      "skills": [
+        "Cpp",
+        "Java",
+        "AWS"
+      ]
+    },
+    {
+      "name": "Paul",
+      "age": 27,
+      "skills": [
+        "AI",
+        "Data",
+        "CI/CD"
+      ]
+    }
+  ]
+}
