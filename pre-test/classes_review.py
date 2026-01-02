@@ -384,3 +384,154 @@
 # log(SocketLogger())
 
 
+##============encapsulation========
+##Controlling how internal state is accessed and modified.
+
+# class User:
+#     def __init__(self, name, balance):
+#         self.name = name
+#         self._balance = balance #“You can touch this, but you probably shouldn’t.”
+#     def deposit(self, amount):
+#       if amount <= 0:
+#           raise ValueError("Invalid amount")
+#       self._balance += amount
+
+# u1= User("Josh",0)
+# u1.deposit(900)
+# u1.deposit(900)
+# u1.deposit(900)
+# print(u1._balance)
+
+
+# class Person:
+#   def __init__(self, name, age):
+#     self.name = name
+#     self.__age = age # "Private" property
+
+# p1 = Person("Emil", 25)
+# print(p1.name)
+# # print(p1.__age) # This will cause an attribute error
+# print(p1._Person__age)  #works fine 
+
+
+
+###============__eq__ and __hash__===========
+
+# class User:
+#     def __init__(self, name):
+#         self.name = name
+# u1 = User('Josh')
+# u2 =User('Josh')
+
+# print(u1 == u2)  #False: By default, objects are equal only if they are the same object in memory.
+
+# class User:
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+
+#     def __eq__(self, other):
+#         if not isinstance(other, User):
+#             return NotImplemented
+#         return self.name == other.name and self.age == other.age
+
+# u1 = User('Josh',28)
+# u2 = User('Josh', 29)
+# u3 = User('Josh', 28)
+
+# print(u1 == u2)  #False because u1.age != u2.age 
+# print(u1 == u3)  #True because both obj have the same arguments
+
+
+##===========================
+
+# class User:
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+
+#     def __eq__(self, other):
+#         if not isinstance(other, User):
+#             return NotImplemented
+#         return self.name == other.name and self.age == other.age
+
+#     def __hash__(self):
+#         return hash((self.name, self.age))
+
+# User("Josh", 28) in {User("Josh", 28)}
+
+
+##============composition==========
+# class Logger:
+#     def log(self, message):
+#         print(message)
+
+# class UserService:
+#     def __init__(self, logger):
+#         self.logger = logger
+
+#     def create_user(self, name):
+#         self.logger.log(f"Created user {name}")
+
+
+##======Inner classes =======
+
+# class Outer:
+#   def __init__(self):
+#     self.name = "Outer"
+
+#   class Inner:
+#     def __init__(self):
+#       self.name = "Inner"
+
+#     def display(self):
+#       print("This is the inner class")
+
+# outer = Outer()
+# inner = outer.Inner()
+# # print(outer.name)
+# print(inner.display())
+
+# class Person:
+#   def __init__(self,name):
+#      self.name = name
+#   class Address:
+#       def __init__(self,city, country, outer):
+#           self.city = city
+#           self.country = country
+#           self.outer = outer
+
+# user =Person('Josh')
+# addr = user.Address('NY', 'USA', user)
+# print(addr.outer.name)
+
+# class Address:
+#     def __init__(self, city, country):
+#         self.city = city
+#         self.country = country
+
+# class Person:
+#     def __init__(self, name, address):
+#         self.name = name
+#         self.address = address
+#     def describe(self):
+#         return f"{self.name} lives in {self.address.city}, {self.address.country}"
+
+
+# username = 'Josh'
+# city,country = ['NY', 'USA']
+# address =Address(city, country)
+# user = Person(username,address)
+
+# print(user.name)
+# print(user.address.city)
+# print(user.address.country)
+
+# office = Address("San Francisco", "USA")
+
+# p1 = Person("Josh", office)
+# p2 = Person("Linus", office)
+
+# print(p1.address.city)
+# print(p2.address.city)
+# print(p1.describe())
