@@ -213,64 +213,64 @@
 
 ###More Upgraded version of the above logic ==========
 
-import json
-from pathlib import Path
+# import json
+# from pathlib import Path
 
-path = Path("users.json")
+# path = Path("users.json")
 
-# Load data safely
-if path.exists():
-    try:
-        data = json.loads(path.read_text())
-    except json.JSONDecodeError:
-        data = {"users": []}
-else:
-    data = {"users": []}
+# # Load data safely
+# if path.exists():
+#     try:
+#         data = json.loads(path.read_text())
+#     except json.JSONDecodeError:
+#         data = {"users": []}
+# else:
+#     data = {"users": []}
 
-users = data["users"]
+# users = data["users"]
 
-# Build lookup
-name_map = {u["name"].lower(): u for u in users}
+# # Build lookup
+# name_map = {u["name"].lower(): u for u in users}
 
-# Ask for name
-while True:
-    name = input("Enter name: ").strip()
-    if not name:
-        print("Name cannot be empty.")
-        continue
+# # Ask for name
+# while True:
+#     name = input("Enter name: ").strip()
+#     if not name:
+#         print("Name cannot be empty.")
+#         continue
 
-    lower_name = name.lower()
+#     lower_name = name.lower()
 
-    if lower_name in name_map:
-        choice = input(
-            "User exists. Rename this user? (y/n): "
-        ).strip().lower()
+#     if lower_name in name_map:
+#         choice = input(
+#             "User exists. Rename this user? (y/n): "
+#         ).strip().lower()
 
-        if choice == "y":
-            new_name = input("Enter new name: ").strip()
-            if not new_name:
-                print("New name cannot be empty.")
-                continue
+#         if choice == "y":
+#             new_name = input("Enter new name: ").strip()
+#             if not new_name:
+#                 print("New name cannot be empty.")
+#                 continue
 
-            name_map[lower_name]["name"] = new_name
-            path.write_text(json.dumps(data, indent=2))
-            print("User renamed successfully.")
-            break
-        else:
-            print("No changes made.")
-            break
-    else:
-        # New user flow
-        age = int(input("Enter age: ").strip())
-        skills_input = input("Enter skills (comma separated): ").strip()
-        skills = [s.strip() for s in skills_input.split(",") if s.strip()]
+#             name_map[lower_name]["name"] = new_name
+#             path.write_text(json.dumps(data, indent=2))
+#             print("User renamed successfully.")
+#             break
+#         else:
+#             print("No changes made.")
+#             break
+#     else:
+#         # New user flow
+#         age = int(input("Enter age: ").strip())
+#         skills_input = input("Enter skills (comma separated): ").strip()
+#         skills = [s.strip() for s in skills_input.split(",") if s.strip()]
 
-        users.append({
-            "name": name,
-            "age": age,
-            "skills": skills
-        })
+#         users.append({
+#             "name": name,
+#             "age": age,
+#             "skills": skills
+#         })
 
-        path.write_text(json.dumps(data, indent=2))
-        print("New user added successfully.")
-        break
+#         path.write_text(json.dumps(data, indent=2))
+#         print("New user added successfully.")
+#         break
