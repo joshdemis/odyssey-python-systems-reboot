@@ -42,7 +42,7 @@
 - Designing clean module APIs
 - Organizing small programs
 
-## 5. Exceptions & Error Handling
+## 5. Exceptions & Error Handling(DONE)
 - try / except / else / finally
 - When to raise vs when to catch
 - Custom exceptions
