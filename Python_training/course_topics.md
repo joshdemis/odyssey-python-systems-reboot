@@ -50,14 +50,14 @@
 - Exception design for libraries
 - Error handling with files and JSON
 
-## 6. Testing & Debugging (Core Skill)
+## 6. Testing & Debugging (Core Skill)(DONE)
 - Assertions and sanity checks
 - Unit testing basics (unittest or pytest)
 - Testing pure functions vs stateful code
 - Debugging techniques
 - Reading stack traces properly
 
-## 7. Python Runtime & Internals (Light but Important)
+## 7. Python Runtime & Internals (Light but Important)(DONE)
 - Namespaces and scope
 - How imports actually work
 - Object identity vs equality
